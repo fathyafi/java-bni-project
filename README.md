@@ -1,5 +1,5 @@
 # Java BNI Project
-
+# aku cantik
 This is a simple Spring Boot API that provides user **registration** and **login** functionality using **Oracle SQL** as the database.
 
 ---
