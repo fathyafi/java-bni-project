@@ -26,3 +26,15 @@ jobs:
     - name: Start OpenShift Build
       run: |
         oc start-build "${{secrets.OC_BUILD_NAME}}" -n "${{secrets.OC_NAMESPACE}}" --wait --follow
+
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Send Telegram Notification
+        run: |
+          curl -X POST "https://api.telegram.org/bot7992323994:AAGFPm-f74H_39DpfPmMN7cJ8y6VE-YloOY/sendMessage" \
+            -d chat_id=1309089514 \
+            -d text="🚨 Merge to Main/Master Branch 🚨\nA merge has been made to the main/master branch. Please review the changes!"
